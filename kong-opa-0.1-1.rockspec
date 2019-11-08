@@ -16,7 +16,7 @@ dependencies = {
 build = {
   type = "builtin",
   modules = {
-    ["kong.plugins.opa.handler"] = "/plugins/kong/plugins/kong-opa/handler.lua",
-    ["kong.plugins.opa.schema"] = "/plugins/kong/plugins/kong-opa/schema.lua"
+    ["kong.plugins.opa.handler"] = "/opa/handler.lua",
+    ["kong.plugins.opa.schema"] = "/opa/schema.lua"
   }
 }
