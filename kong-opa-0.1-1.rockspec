@@ -2,7 +2,7 @@ package = "kong-opa"
 version = "0.1-1"
 supported_platforms = {"linux", "macosx"}
 source = {
-  url = "https://github.com/ninjaneers-team/kong-authorization-opa",
+  url = "https://github.com/ninjaneers-team/kong-opa",
   tag = "v1.0"
 }
 
