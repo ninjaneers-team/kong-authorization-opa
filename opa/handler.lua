@@ -1,9 +1,9 @@
 local BasePlugin = require "kong.plugins.base_plugin"
-local responses = require "kong.tools.responses"
 local utils = require "kong.tools.utils"
 local http = require "resty.http"
 local cjson = require "cjson.safe"
-local public_utils = require "kong.tools.public"
+local public_utils = kong.public
+local responses = kong.response
 
 -- functions
 local new_tab
