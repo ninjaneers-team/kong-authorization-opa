@@ -2,7 +2,7 @@ package = "kong-opa"
 version = "0.1-1"
 supported_platforms = {"linux", "macosx"}
 source = {
-  url = "https://github.com/ninjaneers-team/kong-opa",
+  url = "git://github.com/ninjaneers-team/kong-opa",
   tag = "v1.0"
 }
 
@@ -11,12 +11,12 @@ description = {
   license = "Apache 2.0",
 }
 dependencies = {
-  "lua ~> 5.1"
+  "lua >= 5.1"
 }
 build = {
   type = "builtin",
   modules = {
-    ["kong.plugins.opa.handler"] = "/opa/handler.lua",
-    ["kong.plugins.opa.schema"] = "/opa/schema.lua"
+    ["kong.plugins.opa.handler"] = "opa/handler.lua",
+    ["kong.plugins.opa.schema"] = "opa/schema.lua"
   }
 }
