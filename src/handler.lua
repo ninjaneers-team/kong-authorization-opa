@@ -117,7 +117,7 @@ function OPAHandler:access(conf)
     }
   }
   if not res then
-    return responses.send_HTTP_INTERNAL_SERVER_ERROR(err)
+    return responses.exit(500, err)
   end
 
   local body = res:read_body()
@@ -125,7 +125,7 @@ function OPAHandler:access(conf)
 
   local ok, err = client:set_keepalive(conf.keepalive)
   if not ok then
-    return responses.send_HTTP_INTERNAL_SERVER_ERROR(err)
+    return responses.exit(500, err)
   end
 
   -- set latency header
@@ -135,7 +135,7 @@ function OPAHandler:access(conf)
   then
     if not string.find(body, "true")
     then
-      return responses.send_HTTP_UNAUTHORIZED()
+      return responses.exit(401, "Unauthorized")
     end
     -- else continue the request
   else
