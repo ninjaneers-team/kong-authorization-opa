@@ -33,3 +33,15 @@ $ curl -i -X POST \
   --data 'config.opa_host=http://localhost:7001' \
   --data 'config.policy_uri=v1/data/my_package/my_policy'
 ```
+
+## Publish luarocks
+
+### Pack
+```
+luarocks pack kong-opa-0.1-1.rockspec
+```
+
+### Push
+```
+uarocks upload kong-opa-0.1-1.rockspec --api-key=<YOUR_LUAROCKS_KEY>
+```
