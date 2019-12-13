@@ -109,7 +109,7 @@ function OPAHandler:access(conf)
   client:connect(host, port)
 
   local res, err = client:request {
-    method = "GET",
+    method = "POST",
     path = path,
     body = opa_body_json,
     headers = {
