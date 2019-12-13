@@ -109,7 +109,7 @@ function OPAHandler:access(conf)
   client:connect(host, port)
 
   local res, err = client:request {
-    method = "POST",
+    method = "GET",
     path = path,
     body = opa_body_json,
     headers = {
@@ -117,6 +117,7 @@ function OPAHandler:access(conf)
     }
   }
   if not res then
+    ngx.log(ngx.ERR, "[opa] could not retrieve response: ", err)
     return responses.exit(500, err)
   end
 
@@ -125,6 +126,7 @@ function OPAHandler:access(conf)
 
   local ok, err = client:set_keepalive(conf.keepalive)
   if not ok then
+    ngx.log(ngx.ERR, "[opa] response was not successful: ", err)
     return responses.exit(500, err)
   end
 
